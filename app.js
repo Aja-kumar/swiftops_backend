@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const sequelize = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
-
+const authRoutes = require('./routes/auth');
 dotenv.config();
 const app = express();
 
@@ -13,6 +13,7 @@ app.use(cors());
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 // Database Connection & Server Start
 const PORT = process.env.PORT || 5000;
